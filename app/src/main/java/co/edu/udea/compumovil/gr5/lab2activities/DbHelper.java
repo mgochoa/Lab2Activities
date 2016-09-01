@@ -39,9 +39,8 @@ public class DbHelper extends SQLiteOpenHelper { //
         onCreate(db);//Crear tabla de nuevo
     }
     //TODO:Mejorar login query, descomentar el main intent.
-    public Cursor loginQuery(SQLiteDatabase db, String username, String pass){
-        String[] data ={};
-        String[] campos = new String[] {user.Column.USER,user.Column.PASSWORD};
+    public Cursor loginQuery(SQLiteDatabase db, String username){
+        String[] campos = new String[] {user.Column.USER,user.Column.PASSWORD,user.Column.EMAIL};
         String[] args = new String[] {username};
 
         Cursor c = db.query(user.TABLE, campos, "user=?", args, null, null, null);

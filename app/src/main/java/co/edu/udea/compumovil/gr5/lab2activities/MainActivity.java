@@ -1,10 +1,12 @@
 package co.edu.udea.compumovil.gr5.lab2activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -23,10 +26,14 @@ public class MainActivity extends AppCompatActivity
     //TODO: Generar el listview dese la db.
     Fragment fragmentoGenerico;
     FragmentManager fragmentManager;
+
+    Intent logInIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        logInIntent= getIntent();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -103,10 +110,24 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
             fragmentoGenerico=new lugaresFragment();
         } else if (id == R.id.nav_profile) {
+            Bundle bundle = new Bundle();
+            bundle.putString(user.Column.USER, logInIntent.getExtras().getString(user.Column.USER));
+            bundle.putString(user.Column.EMAIL, logInIntent.getExtras().getString(user.Column.EMAIL));
             fragmentoGenerico= new perfilFragment();
+            fragmentoGenerico.setArguments(bundle);
+            if(logInIntent!=null) {
+                Log.d("Profile",logInIntent.getExtras().getString(user.Column.USER));
+                Log.d("Profile",logInIntent.getExtras().getString(user.Column.EMAIL));
+
+                /*
+                tvUsernameProfile.setText(logInIntent.getExtras().getString(user.Column.USER));
+                tvEmailProfile.setText(logInIntent.getExtras().getString(user.Column.EMAIL));
+                */
+            }
         } else if (id == R.id.nav_about) {
             fragmentoGenerico = new acercaDeFragment();
         } else if (id == R.id.nav_log_oout) {
+            
             finish();
         }
         if (fragmentoGenerico != null) {

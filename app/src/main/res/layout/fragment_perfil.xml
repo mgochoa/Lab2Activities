@@ -16,10 +16,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25sp"/>
     <TextView
+        android:id="@+id/tv_email_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50sp"
-        android:text="Edad"
+        android:text="Email"
         android:textSize="45sp"
         android:textColor="@color/colorAccent"
         android:layout_below="@+id/tv_username_profile"

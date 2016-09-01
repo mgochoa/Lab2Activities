@@ -6,13 +6,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class perfilFragment extends Fragment {
-
+   private TextView tvUsernameProfile, tvEmailProfile;
 
     public perfilFragment() {
         // Required empty public constructor
@@ -23,7 +24,12 @@ public class perfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        /*tvUsernameProfile = (TextView) getView().findViewById(R.id.tv_username_profile);
+        tvEmailProfile = (TextView) getView().findViewById(R.id.tv_email_profile);
+        tvUsernameProfile.setText(getArguments().getString(user.Column.USER));
+        tvEmailProfile.setText(getArguments().getString(user.Column.EMAIL));*/
         return inflater.inflate(R.layout.fragment_perfil, container, false);
+
     }
 
 }
