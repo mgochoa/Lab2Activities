@@ -1,6 +1,7 @@
 package co.edu.udea.compumovil.gr5.lab2activities;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -20,7 +21,7 @@ public class DbHelper extends SQLiteOpenHelper { //
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = String
-                .format("create table %s (%s int primary key, %s text, %s text, %s text)",
+                .format("create table %s (%s integer primary key AUTOINCREMENT, %s text, %s text, %s text)",
                         user.TABLE, user.Column.ID,
                         user.Column.USER,
                         user.Column.EMAIL,
@@ -37,5 +38,18 @@ public class DbHelper extends SQLiteOpenHelper { //
         db.execSQL("drop table if exists " + user.TABLE); //Borrar tabla
         onCreate(db);//Crear tabla de nuevo
     }
+    //TODO:Mejorar login query, descomentar el main intent.
+    public Cursor loginQuery(SQLiteDatabase db, String username, String pass){
+        String[] data ={};
+        String[] campos = new String[] {user.Column.USER,user.Column.PASSWORD};
+        String[] args = new String[] {username};
+
+        Cursor c = db.query(user.TABLE, campos, "user=?", args, null, null, null);
+        //Cursor c=db.query(user.TABLE,data,user.Column.USER+"="+username,null,null,null,null);
+        return c;
+
+    }
+
+
 }
 

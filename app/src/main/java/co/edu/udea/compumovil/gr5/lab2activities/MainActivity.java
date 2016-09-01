@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity
 
     //TODO: Implementar el guardado de datos con saveInstance, para los datos personales. Aunque creo que es en el Login.
     //TODO: Generar el listview dese la db.
-    //
+    Fragment fragmentoGenerico;
+    FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,15 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        fragmentoGenerico = null;
+        fragmentManager = getSupportFragmentManager();
+        fragmentoGenerico=new lugaresFragment();
+        if (fragmentoGenerico != null) {
+            fragmentManager
+                    .beginTransaction()
+                    .replace(R.id.content_main, fragmentoGenerico)
+                    .commit();
+        }
     }
 
     @Override
@@ -84,8 +94,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        Fragment fragmentoGenerico = null;
-        FragmentManager fragmentManager = getSupportFragmentManager();
+         fragmentoGenerico = null;
+         fragmentManager = getSupportFragmentManager();
 
         int id = item.getItemId();
 

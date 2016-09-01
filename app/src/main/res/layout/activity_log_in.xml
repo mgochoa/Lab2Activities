@@ -33,12 +33,12 @@
         android:layout_marginTop="8dp"
         android:hint="Username">
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/input_email"
+            android:id="@+id/input_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-
+            android:inputType="textPersonName"
             app:met_floatingLabel="highlight"
+
             />
     </android.support.design.widget.TextInputLayout>
 
