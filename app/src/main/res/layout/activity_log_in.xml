@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
     android:fitsSystemWindows="true"
-    android:id="@+id/login_layout"
-    tools:context="co.edu.udea.compumovil.gr5.lab2activities.LogIn"
-    android:background="@color/colorPrimary">
+    tools:context="co.edu.udea.compumovil.gr5.lab2activities.LogIn">
 
 
 <LinearLayout
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="56dp"
+    android:orientation="vertical"
     android:paddingLeft="24dp"
-    android:paddingRight="24dp">
+    android:paddingRight="24dp"
+    android:paddingTop="56dp">
 
-    <ImageView android:src="@mipmap/ic_launcher"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="72dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="24dp"
-        android:layout_gravity="center_horizontal" />
+        android:src="@mipmap/ic_launcher" />
 
     <!-- Email Label -->
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:hint="Username">
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/input_email"
@@ -45,41 +46,42 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:hint="Password">
         <com.rengwuxian.materialedittext.MaterialEditText
-            app:met_floatingLabel="highlight"
             android:id="@+id/input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            app:met_floatingLabel="highlight"
             />
     </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/btn_login"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
+        android:layout_marginTop="24dp"
+        android:onClick="logIn"
         android:padding="12dp"
         android:text="Login"
         android:textColor="@color/colorAccent"
-        android:textSize="25sp"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/link_signup"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="No account yet? Create one"
         android:gravity="center"
-        android:textColor="#B3E5FC"
-        android:textSize="16dp"
         android:onClick="registerFunc"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+        android:text="No account yet? Create one"
+        android:textColor="#B3E5FC"
+        android:textSize="16dp" />
 
 </LinearLayout>
 </ScrollView>
