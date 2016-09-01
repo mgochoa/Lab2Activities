@@ -2,6 +2,7 @@ package co.edu.udea.compumovil.gr5.lab2activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity
 
 
     //TODO: Implementar el guardado de datos con saveInstance, para los datos personales. Aunque creo que es en el Login.
-    //TODO: Generar el listview dese la db.
+    //TODO: Generar el listview desde la db.
     Fragment fragmentoGenerico;
     FragmentManager fragmentManager;
 
@@ -33,7 +34,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         logInIntent= getIntent();
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
             fragmentoGenerico = new acercaDeFragment();
         } else if (id == R.id.nav_log_oout) {
-            
+
             finish();
         }
         if (fragmentoGenerico != null) {
@@ -141,4 +141,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

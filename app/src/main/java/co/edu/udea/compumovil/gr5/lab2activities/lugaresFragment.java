@@ -13,6 +13,8 @@ import android.view.ViewGroup;
  */
 public class lugaresFragment extends Fragment {
 
+/** TODO:Implementar LisView con las listas de la db, poblar lab2.db en la tabla places.
+ */
 
     public lugaresFragment() {
         // Required empty public constructor
