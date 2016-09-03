@@ -29,7 +29,7 @@ public class DbHelper extends SQLiteOpenHelper { //
         //Sentencia para crear tabla
         Log.d(TAG, "onCreate with SQL: " + sql);
         String sql2 =String
-                .format("create table %s (%s integer primary key AUTOINCREMENT, %s text, %s text, %s text, %s text, %s real, %s real,%s blob)",
+                .format("create table %s (%s integer primary key AUTOINCREMENT, %s text, %s text, %s text, %s text, %s text, %s text,%s text)",
                         lugar.TABLE,lugar.Column.ID,
                         lugar.Column.NAME,
                         lugar.Column.DESCRIPTION,

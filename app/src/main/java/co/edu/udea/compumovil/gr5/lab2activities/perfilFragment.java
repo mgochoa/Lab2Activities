@@ -24,11 +24,13 @@ public class perfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        /*tvUsernameProfile = (TextView) getView().findViewById(R.id.tv_username_profile);
-        tvEmailProfile = (TextView) getView().findViewById(R.id.tv_email_profile);
+        View v =inflater.inflate(R.layout.fragment_perfil, container, false);
+
+        tvUsernameProfile = (TextView) v.findViewById(R.id.tv_username_profile);
+        tvEmailProfile = (TextView) v.findViewById(R.id.tv_email_profile);
         tvUsernameProfile.setText(getArguments().getString(user.Column.USER));
-        tvEmailProfile.setText(getArguments().getString(user.Column.EMAIL));*/
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        tvEmailProfile.setText(getArguments().getString(user.Column.EMAIL));
+        return v;
 
     }
 

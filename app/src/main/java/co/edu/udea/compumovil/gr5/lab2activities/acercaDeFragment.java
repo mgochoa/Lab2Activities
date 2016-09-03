@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 
 /**
@@ -23,7 +25,15 @@ public class acercaDeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_acerca_de, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_acerca_de, container, false);
+
+        WebView webView = (WebView)rootView.findViewById(R.id.webView);
+        webView.getSettings().setLoadsImagesAutomatically(true);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        webView.loadUrl("https://sites.google.com/site/udeacomputacionmovil15/");
+
+        return rootView;
     }
 
 }
