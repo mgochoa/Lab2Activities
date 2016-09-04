@@ -1,68 +1,65 @@
 package co.edu.udea.compumovil.gr5.lab2activities;
 
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.LoginFilter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class lugaresFragment extends ListFragment implements AdapterView.OnItemClickListener {
+public class lugaresFragment extends Fragment{
 
-/** TODO:Implementar LisView con las listas de la db, poblar lab2.db en la tabla places.
- */ private String [] planetsList;
-    private final String TAG = "lugaresFragment";
-
-    public lugaresFragment() {
-        // Required empty public constructor
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        //Create adapter with array-string form string values
-//        ArrayAdapter adapter = ArrayAdapter.createFromResource(
-//                getActivity(),
-//                R.array.Planets,
-//                android.R.layout.simple_list_item_1);
-
-        //get array-string from resources
-        planetsList = getResources().getStringArray(R.array.Planets);
-        //Create adapter with array-string form a normal array
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, planetsList);
-
-
-        //Set adapter
-        setListAdapter(adapter);
-        //Set event onClick
-        getListView().setOnItemClickListener(this);
-    }
+    private List<user> persons;
+    private RecyclerView rv;
+    SQLiteDatabase bg=LogIn.db;
+    DbHelper dg =LogIn.dbHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lugares, container, false);
+        View v = inflater.inflate(R.layout.fragment_lugares, container, false);
+        rv=(RecyclerView)v.findViewById(R.id.rv);
+
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        rv.setLayoutManager(llm);
+        rv.setHasFixedSize(true);
+        initializeData();
+        initializeAdapter();
+
+        return v;
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String planetName = planetsList[position];
-
-        //Show message in toast
-        Toast.makeText(getActivity(), "This planet is: " + planetName, Toast.LENGTH_SHORT).show();
-        Log.d(TAG,"This planet is: " + planetName );
-
+    private void initializeData(){
+        persons = new ArrayList<>();
+        String emmma="R.drawable.emma";
+        persons.add(new user("Emma Wilson", "23 years old",R.drawable.emma));
+        persons.add(new user("Lavery Maiss", "25 years old", R.drawable.lavery));
+        persons.add(new user("Lillie Watts", "35 years old", R.drawable.lillie));
     }
+
+    private void initializeAdapter(){
+        RVAdapter adapter = new RVAdapter(persons);
+        rv.setAdapter(adapter);
+    }
+
 }

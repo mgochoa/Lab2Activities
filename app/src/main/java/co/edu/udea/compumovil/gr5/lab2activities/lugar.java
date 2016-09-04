@@ -19,6 +19,7 @@ public class lugar {
         public static final String LAT = "lat";
         public static final String LONG = "long";
         public static final String IMAGE= "image";
+        public static final String RATE= "rate";
 
 
     }

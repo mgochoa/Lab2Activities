@@ -26,8 +26,8 @@ public class LogIn extends AppCompatActivity {
      * Componenetes de comunicacion con la base de datos Sqlite
      * Se guarda en /data/com.---.app/data/databases/<name>.db
      */
-    public DbHelper dbHelper;
-    public SQLiteDatabase db;
+    public static DbHelper dbHelper;
+    public static SQLiteDatabase db;
     //TODO: Pasar la informacion al mainactivity, mediante las propiedades del intent.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
