@@ -59,8 +59,8 @@ public class DbHelper extends SQLiteOpenHelper { //
         guatape.put(lugar.Column.DESCRIPTION,"Antioquia, Colombia");
         guatape.put(lugar.Column.INFO_GENERAL,"Municipio de Colombia, localizado en el oriente Antioqueño que cautiva con su embalse, piedra gigante y fachada de sus casas.");
         guatape.put(lugar.Column.TEMP,"14");
-        guatape.put(lugar.Column.LAT,"6.2311");
-        guatape.put(lugar.Column.LONG,"-75.1535");
+        guatape.put(lugar.Column.LAT,"6.23114");
+        guatape.put(lugar.Column.LONG,"-75.15347");
         guatape.put(lugar.Column.IMAGE,String.valueOf(R.drawable.guatape));
         guatape.put(lugar.Column.RATE,"8");
        //
@@ -72,8 +72,8 @@ public class DbHelper extends SQLiteOpenHelper { //
         cano_cristal.put(lugar.Column.DESCRIPTION,"Meta, Colombia");
         cano_cristal.put(lugar.Column.INFO_GENERAL,"Posee el rio de los 5 colores, cercano al municipio la Macarena, es el rio màs hermoso del mundo.Alto turismo");
         cano_cristal.put(lugar.Column.TEMP,"30");
-        cano_cristal.put(lugar.Column.LAT,"2.2628");
-        cano_cristal.put(lugar.Column.LONG,"-73.7930");
+        cano_cristal.put(lugar.Column.LAT,"2.26356");
+        cano_cristal.put(lugar.Column.LONG,"-73.79432");
         cano_cristal.put(lugar.Column.IMAGE,String.valueOf(R.drawable.cano_cristal));
         cano_cristal.put(lugar.Column.RATE,"7.5");
         db.insert(lugar.TABLE,null,cano_cristal);
@@ -84,8 +84,8 @@ public class DbHelper extends SQLiteOpenHelper { //
         capurgana.put(lugar.Column.DESCRIPTION,"Chocó, Colombia");
         capurgana.put(lugar.Column.INFO_GENERAL,"Corregimiento del municipio de Acandì, cerca a la frontera Colombo-Panameña,Es una población turistica aislada de carreteras.Solo accesible vìa maritima y aerea.");
         capurgana.put(lugar.Column.TEMP,"27");
-        capurgana.put(lugar.Column.LAT,"8.6333");
-        capurgana.put(lugar.Column.LONG,"-77.3200");
+        capurgana.put(lugar.Column.LAT,"8.63337");
+        capurgana.put(lugar.Column.LONG,"-77.35002");
         capurgana.put(lugar.Column.IMAGE,String.valueOf(R.drawable.capurgana));
         capurgana.put(lugar.Column.RATE,"8.8");
         db.insert(lugar.TABLE,null,capurgana);

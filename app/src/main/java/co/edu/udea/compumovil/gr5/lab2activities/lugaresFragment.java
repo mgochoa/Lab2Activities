@@ -28,10 +28,9 @@ import java.util.List;
  */
 public class lugaresFragment extends Fragment{
 
-    private List<user> persons;
+    public static List<lugarInfo> places;
     private RecyclerView rv;
     SQLiteDatabase bg=LogIn.db;
-    DbHelper dg =LogIn.dbHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,20 +44,22 @@ public class lugaresFragment extends Fragment{
         rv.setHasFixedSize(true);
         initializeData();
         initializeAdapter();
+        getActivity().setTitle("Lugares");
 
         return v;
     }
 
     private void initializeData(){
-        persons = new ArrayList<>();
-        String emmma="R.drawable.emma";
+        places=LogIn.dbHelper.getAllPlaces();
+  /*      places = new ArrayList<>();
+
         persons.add(new user("Emma Wilson", "23 years old",R.drawable.emma));
         persons.add(new user("Lavery Maiss", "25 years old", R.drawable.lavery));
-        persons.add(new user("Lillie Watts", "35 years old", R.drawable.lillie));
+        persons.add(new user("Lillie Watts", "35 years old", R.drawable.lillie));*/
     }
 
     private void initializeAdapter(){
-        RVAdapter adapter = new RVAdapter(persons);
+        RVAdapter adapter = new RVAdapter(places);
         rv.setAdapter(adapter);
     }
 

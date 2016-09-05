@@ -1,36 +1,68 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:orientation="vertical"
     tools:context="co.edu.udea.compumovil.gr5.lab2activities.acercaDeFragment">
 
 
-    <WebView
-        android:id="@+id/webView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <!-- TODO: Embellecer -->
-<!--
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="acerca del curso"
-        android:textSize="45sp"
-        android:layout_centerInParent="true"
-        android:textColor="@color/colorAccent"/>
+        android:text="Computacion Movil"
+      android:layout_gravity="center_horizontal"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+      />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2016-2"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profesor: Jaiber Yepes"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="El curso Computación Móvil introduce los conceptos básicos acerca del diseño y desarrollo de aplicaciones móviles. En el curso se tratan temas generales de computación móvil como arquitectura de dispositivos móviles y temas particulares en el desarrollo de aplicaciones en Android referentes a la arquitectura de software, manejo del framework de programación Android studio y desarrollo de interfaces de usuario utilizando Material Design."
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:padding="8dp"
+        android:layout_centerHorizontal="true"
+        />
     <Button
+        android:id="@+id/btn_web_page"
+        android:layout_marginTop="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pagina web"
-        android:textSize="50sp"
+        android:onClick=""
+        android:layout_gravity="center_horizontal"
+        android:textSize="26sp"
         android:textColor="@color/colorPrimary"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:gravity="center|bottom"
         />
--->
-
 
 </LinearLayout>
+</ScrollView>

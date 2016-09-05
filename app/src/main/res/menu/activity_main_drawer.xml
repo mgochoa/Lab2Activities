@@ -4,16 +4,16 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_places"
-            android:icon="@android:drawable/ic_menu_myplaces"
-            android:title="Places" />
+            android:icon="@drawable/ic_place_black_18dp"
+            android:title="Lugares" />
         <item
             android:id="@+id/nav_profile"
-            android:icon="@android:drawable/btn_star_big_on"
-            android:title="Profile" />
+            android:icon="@drawable/ic_info_black_18dp"
+            android:title="Información Personal" />
         <item
             android:id="@+id/nav_about"
-            android:icon="@android:drawable/ic_menu_info_details"
-            android:title="About" />
+            android:icon="@drawable/ic_perm_identity_black_18dp"
+            android:title="Acerca De" />
     </group>
 
     <item android:title="Options">

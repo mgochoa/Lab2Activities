@@ -25,7 +25,7 @@ public class perfilFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v =inflater.inflate(R.layout.fragment_perfil, container, false);
-
+        getActivity().setTitle("Informacion Personal");
         tvUsernameProfile = (TextView) v.findViewById(R.id.tv_username_profile);
         tvEmailProfile = (TextView) v.findViewById(R.id.tv_email_profile);
         tvUsernameProfile.setText(getArguments().getString(user.Column.USER));

@@ -90,7 +90,7 @@ public class LogIn extends AppCompatActivity {
             PASS_CALL_BACK = c.getString(1);
             EMAIL_CALL_BACK = c.getString(2);
 
-            if (USERNAME.equals(USERNAME_CALL_BACK) && PASS.equals(PASS_CALL_BACK)) {
+            if (USERNAME.equals(USERNAME_CALL_BACK) & PASS.equals(PASS_CALL_BACK)) {
                 try {
                     Intent intMain = new Intent(LogIn.this, MainActivity.class);
                     intMain.putExtra(user.Column.USER, USERNAME);
