@@ -26,7 +26,8 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".placeInfoActiviy"></activity>
+        <activity android:name=".placeInfoActiviy" />
+        <activity android:name=".create_place"></activity>
     </application>
 
 </manifest>

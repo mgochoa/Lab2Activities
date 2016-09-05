@@ -142,6 +142,23 @@ public class DbHelper extends SQLiteOpenHelper { //
 
 
     }
+    // Adding new contact
+    public void addPlace(lugarInfo l) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(lugar.Column.NAME, l.get_name()); // Contact Name
+        values.put(lugar.Column.DESCRIPTION,l.get_description());
+        values.put(lugar.Column.INFO_GENERAL,l.get_info_general());
+        values.put(lugar.Column.TEMP,l.get_temp());
+        values.put(lugar.Column.RATE,l.get_rate());
+        values.put(lugar.Column.LAT,l.get_lat());
+        values.put(lugar.Column.LONG,l.get_long());
+        values.put(lugar.Column.IMAGE,R.drawable.place_placeholder);
+
+        // Inserting Row
+        db.insert(lugar.TABLE, null, values);
+    }
     //TODO: Caputar la informacion y convertirlo a un array list para su adaptacion con el ListView
 
 

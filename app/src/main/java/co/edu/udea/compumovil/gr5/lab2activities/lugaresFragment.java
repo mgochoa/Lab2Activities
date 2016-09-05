@@ -29,7 +29,8 @@ import java.util.List;
 public class lugaresFragment extends Fragment{
 
     public static List<lugarInfo> places;
-    private RecyclerView rv;
+
+    private static RecyclerView rv;
     SQLiteDatabase bg=LogIn.db;
 
     @Override
@@ -49,7 +50,7 @@ public class lugaresFragment extends Fragment{
         return v;
     }
 
-    private void initializeData(){
+    public static void initializeData(){
         places=LogIn.dbHelper.getAllPlaces();
   /*      places = new ArrayList<>();
 
@@ -58,9 +59,13 @@ public class lugaresFragment extends Fragment{
         persons.add(new user("Lillie Watts", "35 years old", R.drawable.lillie));*/
     }
 
-    private void initializeAdapter(){
+    public static void initializeAdapter(){
         RVAdapter adapter = new RVAdapter(places);
         rv.setAdapter(adapter);
+    }
+    public static void update(){
+        initializeData();
+        initializeAdapter();
     }
 
 }
