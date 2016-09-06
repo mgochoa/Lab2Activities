@@ -8,15 +8,15 @@
             android:title="Lugares" />
         <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_info_black_18dp"
+            android:icon="@drawable/ic_perm_identity_black_18dp"
             android:title="Información Personal" />
         <item
             android:id="@+id/nav_about"
-            android:icon="@drawable/ic_perm_identity_black_18dp"
+            android:icon="@drawable/ic_info_black_18dp"
             android:title="Acerca De" />
     </group>
 
-    <item android:title="Options">
+    <item android:title="Opciones">
         <menu>
             <item
                 android:id="@+id/nav_log_oout"

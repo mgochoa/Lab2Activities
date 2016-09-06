@@ -67,7 +67,7 @@
         android:layout_marginTop="24dp"
         android:onClick="logIn"
         android:padding="12dp"
-        android:text="Login"
+        android:text="ENTRAR"
         android:textColor="@color/colorAccent"
         android:textSize="25sp" />
 
@@ -79,7 +79,7 @@
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:onClick="registerFunc"
-        android:text="No account yet? Create one"
+        android:text="NO TIENES CUENTA? REGISTRATE"
         android:textColor="#B3E5FC"
         android:textSize="16dp" />
 
