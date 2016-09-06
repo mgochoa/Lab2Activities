@@ -6,6 +6,7 @@ public class user {
     String name;
     String age;
     int photoId;
+
     user(String name, String age, int photoId) {
         this.name = name;
         this.age = age;
@@ -14,6 +15,7 @@ public class user {
     public static final String DB_NAME = "lab2.db"; //Nombre de la DB
     public static final int DB_VERSION = 1; //Versión de la DB
     public static final String TABLE = "users"; //Nombre de la tabla
+    public static final String PREF_FILE_NAME="data";
 
 
     public class Column { //Columnas de la tabla

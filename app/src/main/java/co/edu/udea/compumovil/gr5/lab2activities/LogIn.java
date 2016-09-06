@@ -1,6 +1,8 @@
 package co.edu.udea.compumovil.gr5.lab2activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -18,6 +20,8 @@ public class LogIn extends AppCompatActivity {
     /**
      * Variables pirvadas del MainActivity
      */
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor ;
     private String USERNAME,PASS,EMAIL,USERNAME_CALL_BACK,PASS_CALL_BACK,EMAIL_CALL_BACK;
     private Button butRegister;
     private MaterialEditText usernameEt, passEt;
@@ -40,6 +44,8 @@ public class LogIn extends AppCompatActivity {
             EMAIL=savedInstanceState.getString(user.Column.EMAIL);
             dbLoginProccess();
         }else {*/
+            sharedPref = this.getSharedPreferences(user.PREF_FILE_NAME,MODE_PRIVATE);
+            editor = sharedPref.edit();
             setContentView(R.layout.activity_log_in);
             butRegister = (Button) findViewById(R.id.link_signup);
             usernameEt = (MaterialEditText) findViewById(R.id.input_username);
@@ -54,6 +60,12 @@ public class LogIn extends AppCompatActivity {
     public void logIn(View v) {
         USERNAME=usernameEt.getText().toString();
         PASS=passEt.getText().toString();
+
+        editor.putBoolean(getString(R.string.userlogged), true);
+        editor.putString(user.Column.USER,USERNAME);
+        editor.putString(user.Column.PASSWORD, PASS);
+        editor.commit();
+
 
         dbLoginProccess();
 
@@ -108,4 +120,22 @@ public class LogIn extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Boolean isUserLogged = sharedPref.getBoolean(getString(R.string.userlogged),false);
+        USERNAME=sharedPref.getString(user.Column.USER,"");
+        PASS=sharedPref.getString(user.Column.PASSWORD,"");
+        Log.d("Logging-Login",Boolean.toString(isUserLogged));
+        if(isUserLogged) {
+            // Do something for the logged user
+            dbLoginProccess();
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Boolean isUserLogged = sharedPref.getBoolean(getString(R.string.userlogged),false);
+    }
 }

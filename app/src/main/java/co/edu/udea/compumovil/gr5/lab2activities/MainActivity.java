@@ -1,6 +1,8 @@
 package co.edu.udea.compumovil.gr5.lab2activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity
     //TODO: Generar el listview desde la db.
     Fragment fragmentoGenerico;
     FragmentManager fragmentManager;
+    SharedPreferences sharedPref ;
+    SharedPreferences.Editor editor;
 
     Intent logInIntent;
     @Override
@@ -34,6 +38,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         logInIntent= getIntent();
+        sharedPref = this.getSharedPreferences(user.PREF_FILE_NAME,MODE_PRIVATE);
+        editor = sharedPref.edit();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -110,6 +116,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
             fragmentoGenerico = new acercaDeFragment();
         } else if (id == R.id.nav_log_oout) {
+            // false on logout
+            Log.d("Logging - Log out",Boolean.toString(sharedPref.getBoolean(getString(R.string.userlogged),true)));
+            editor.putBoolean(getString(R.string.userlogged),false);
+            Log.d("Logging - Log out",Boolean.toString(sharedPref.getBoolean(getString(R.string.userlogged),true)));
+            editor.commit();
+            editor.apply();
 
             finish();
         }
